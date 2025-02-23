@@ -8,14 +8,14 @@
         "
         >
 
-        <lucide-angular [img]="AlignJustify" class="h-5 w-5 hover:scale-1 text-textPrimary" />
+        <lucide-angular [img]="AlignJustify" class="h-5 w-5 hover:scale-1 text-text_primary" />
       </button>
     </div>
     <section class="flex flex-col items-center gap-4">
       @for(item of sidebarItems; track $index){
         <button (click)="item.action()" class="flex flex-col items-center">
-          <lucide-angular [img]="item.icon" class="h-7 w-7 hover:scale-1 text-textPrimary hover:text-primary" />
-          <p class="text-[10px] font-semibold text-textPrimary">{{item.label}}</p>
+          <lucide-angular [img]="item.icon" class="h-7 w-7 hover:scale-1 text-text_primary hover:text-primary" />
+          <p class="text-[10px] font-semibold text-text_primary">{{item.label}}</p>
         </button>
       }
     </section>

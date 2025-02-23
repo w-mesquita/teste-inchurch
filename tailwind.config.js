@@ -5,10 +5,12 @@ module.exports = {
     extend: {
       colors: {
         primary: 'var(--color-primary)',
-        textPrimary: 'var(--color-text-primary)',
-        textDark: 'var(--color-text-dark)',
-        bgGlobal: 'var(--color-bg-global)',
-        bgCard: 'var(--color-bg-card)',
+        primary_light: 'var(--color-primary-light)',
+        primary_dark: 'var(--color-primary)',
+        text_primary: 'var(--color-text-primary)',
+        text_dark: 'var(--color-text-dark)',
+        bg_global: 'var(--color-bg-global)',
+        bg_card: 'var(--color-bg-card)',
       }
     },
   },
