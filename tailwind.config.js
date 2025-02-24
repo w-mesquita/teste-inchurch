@@ -11,6 +11,7 @@ module.exports = {
         text_dark: 'var(--color-text-dark)',
         bg_global: 'var(--color-bg-global)',
         bg_card: 'var(--color-bg-card)',
+        details: 'var(--color-details)',
       }
     },
   },

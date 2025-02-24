@@ -3,9 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+p {
+  margin: 0 !important;
+}
 
 :root {
   --color-primary: #86bd00;
@@ -14,9 +22,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --color-text-primary: #74787a;
   --color-text-dark: #223744;
   --color-bg-global: #f5f7fa;
-  --color-bg-card: #ffffff;
+  --color-bg-card: #fcfcfc;
+  --color-details: #91a0aa;
 }
 
-.mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled).mat-unthemed {
+.mat-mdc-snack-bar-container
+  .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled).mat-unthemed {
   color: var(--color-primary) !important;
 }

@@ -1,1 +1,14 @@
-<p>church-events works!</p>
+<main class="flex flex-col gap-2">
+  <app-page-header title="Eventos" [icon]="ListTodo" />
+
+  <section class="rounded-lg overflow-hidden">
+    @if(true){
+      <app-table-list [tableData]="data()" [tableHeader]="tableHeader" />
+    }
+    @if(false){
+      <app-card-list />
+    }
+    <app-paginator [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" [currentPage]="page"
+    (pageChanged)="onPageChange($event)" />
+  </section>
+</main>

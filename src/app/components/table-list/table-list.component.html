@@ -1,0 +1,35 @@
+@if(tableData()){
+  <table class="min-w-full table-auto">
+    <thead class="bg-white">
+      <tr>
+      @for(item of tableHeader(); track $index){
+          <th class="px-4 py-2 text-left" [attr.colspan]="item.colspan">{{item.label}}</th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for(item of tableData(); track $index){
+        <tr class="odd:bg-bg_card even:bg-white">
+          <td class="px-4 py-2 w-24">
+            <img [src]="item.image" alt="image" class="rounded w-16 h-12">
+          </td>
+          <td class="px-4 py-2">{{item.readingPlans}}</td>
+          <td class="px-4 py-2">{{item.content}}</td>
+          <td class="px-4 py-2">{{item.publishedTo}}</td>
+          <td class="px-4 py-2">{{item.totalReaders}}</td>
+          <td class="px-4 py-2">
+            <button class="p-2 rounded">
+              <lucide-angular [img]="Pencil" class="h-5 w-5 hover:scale-1 text-details hover:text-primary" />
+            </button>
+            <button class="p-2 rounded">
+              <lucide-angular [img]="Trash" class="h-5 w-5 hover:scale-1 text-details hover:text-primary" />
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+} @else {
+  <p>Nenhum dado encontrado...</p>
+}
+

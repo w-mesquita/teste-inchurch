@@ -8,7 +8,7 @@ export const authGuard: CanActivateFn = (route, state) => {
 
   // mock simulação de autenticação
   if (!authService.isAuthenticated()) {
-    return router.createUrlTree(['/login']); // redireciona para a página de login
+    return router.createUrlTree(['/login']); // se não autenticado redireciona para a página de login
   }
 
   return true; // permite acesso se autenticado
