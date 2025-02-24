@@ -1,25 +1,19 @@
-import { Component, input, OnInit } from '@angular/core';
-import {
-  LucideAngularModule,
-  Pencil,
-  Trash
-} from "lucide-angular";
-import { ITableListHeader } from '../../models/table-list.model';
+import { Component, input } from "@angular/core";
+import { LucideAngularModule, Pencil, Trash } from "lucide-angular";
+import { ITableListHeader } from "../../models/table-list.model";
+import { IChurchEvents } from "../../models/church-events.model";
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 @Component({
-  selector: 'app-table-list',
+  selector: "app-table-list",
   standalone: true,
-  imports: [LucideAngularModule],
-  templateUrl: './table-list.component.html',
-  styleUrl: './table-list.component.scss'
+  imports: [LucideAngularModule, MatTooltipModule],
+  templateUrl: "./table-list.component.html",
+  styleUrl: "./table-list.component.scss",
 })
-export class TableListComponent implements OnInit {
+export class TableListComponent {
   readonly Pencil = Pencil;
   readonly Trash = Trash;
   tableHeader = input<ITableListHeader[]>();
-  tableData = input<any[] | null>(null);
-
-  ngOnInit(): void {
-    console.log('🔥 ~ tableData:', this.tableData())
-  }
+  tableData = input<IChurchEvents[] | null>(null);
 }

@@ -1,5 +1,4 @@
-@if(tableData()){
-  <table class="min-w-full table-auto">
+<table class="min-w-full table-auto my-2">
     <thead class="bg-white">
       <tr>
       @for(item of tableHeader(); track $index){
@@ -11,10 +10,11 @@
       @for(item of tableData(); track $index){
         <tr class="odd:bg-bg_card even:bg-white">
           <td class="px-4 py-2 w-24">
-            <img [src]="item.image" alt="image" class="rounded w-16 h-12">
+            <img [src]="item.image" alt="image" class="rounded w-16 h-11">
           </td>
-          <td class="px-4 py-2">{{item.readingPlans}}</td>
-          <td class="px-4 py-2">{{item.content}}</td>
+          <td class="px-4 py-2 truncate max-w-40" [matTooltip]="item.title"
+          matTooltipPosition="above">{{item.title}}</td>
+          <td class="px-4 py-2">{{item.activeTickets ? 'Sim' : 'Não'}}</td>
           <td class="px-4 py-2">{{item.publishedTo}}</td>
           <td class="px-4 py-2">{{item.totalReaders}}</td>
           <td class="px-4 py-2">
@@ -27,9 +27,8 @@
           </td>
         </tr>
       }
+      @empty{
+        <p class="p-4 text-text_dark font-semibold">Nenhum registro encontrado...</p>
+      }
     </tbody>
   </table>
-} @else {
-  <p>Nenhum dado encontrado...</p>
-}
-

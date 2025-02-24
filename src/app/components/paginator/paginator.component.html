@@ -1,4 +1,6 @@
-<div class="flex items-center justify-center gap-2 bg-bg_card min-h-12">
+<div class="flex items-center justify-center gap-2 bg-bg_card min-h-12 px-4">
+
+  <div class="flex gap-2 flex-grow justify-center">
   <!-- botao anterior -->
   <button (click)="changePage(currentPage() - 1)" [disabled]="currentPage() === 1"
     class="p-2 rounded-full w-7 h-7 hover:bg-gray-200 disabled:opacity-50 flex items-center justify-center">
@@ -26,4 +28,13 @@
     class="p-2 rounded-full w-7 h-7 hover:bg-gray-200 disabled:opacity-50 flex items-center justify-center">
     ▶
   </button>
+  </div>
+  <button (click)="toggleView()" class="group flex gap-2 items-center justify-center h-[42px] ml-auto text-details">
+    <lucide-angular [img]="viewMode() === 'grid' ? List : LayoutGrid"
+      class="h-5 w-5 hover:scale-1 text-details group-hover:text-primary" />
+      <span>
+        {{viewMode() === 'grid' ? 'Ver tabela em lista': 'Ver tabela em cards'}}
+      </span>
+  </button>
+
 </div>

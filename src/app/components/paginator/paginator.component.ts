@@ -1,10 +1,12 @@
 import { CommonModule } from "@angular/common";
-import { Component, output, input } from "@angular/core";
+import { Component, output, input, inject } from "@angular/core";
+import { List, LayoutGrid, LucideAngularModule } from "lucide-angular";
+import { useViewModeStore } from "../../stores/view-mode.store";
 
 @Component({
   selector: "app-paginator",
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LucideAngularModule],
   templateUrl: "./paginator.component.html",
   styleUrl: "./paginator.component.scss",
 })
@@ -12,7 +14,13 @@ export class PaginatorComponent {
   totalItems = input<number>(0);
   itemsPerPage = input<number>(10);
   currentPage = input<number>(1);
-  pageChanged = output<{ pageIndex: number, pageSize: number }>();
+  pageChanged = output<{ pageIndex: number; pageSize: number }>();
+
+  viewModeStore = inject(useViewModeStore);
+  viewMode = this.viewModeStore.mode;
+
+  readonly LayoutGrid = LayoutGrid;
+  readonly List = List;
 
   get totalPages() {
     return Math.ceil(this.totalItems() / this.itemsPerPage());
@@ -42,8 +50,12 @@ export class PaginatorComponent {
     if (typeof page === "number" && page !== this.currentPage()) {
       this.pageChanged.emit({
         pageIndex: page - 1,
-        pageSize: this.itemsPerPage()
+        pageSize: this.itemsPerPage(),
       });
     }
+  }
+
+  toggleView() {
+    this.viewModeStore.toggleView();
   }
 }

@@ -7,6 +7,7 @@ import { PaginatorComponent } from '../../components/paginator/paginator.compone
 import { TableListComponent } from '../../components/table-list/table-list.component';
 import { CardListComponent } from '../../components/card-list/card-list.component';
 import { ITableListHeader } from '../../models/table-list.model';
+import { useViewModeStore } from '../../stores/view-mode.store';
 
 @Component({
   selector: 'app-church-events',
@@ -17,15 +18,19 @@ import { ITableListHeader } from '../../models/table-list.model';
 })
 export class ChurchEventsComponent {
   readonly ListTodo = ListTodo;
+
   churchEventsService = inject(ChurchEventsService);
+  viewModeStore = inject(useViewModeStore);
+
+  viewMode = this.viewModeStore.mode;
   page = 1;
-  itemsPerPage = 8;
+  itemsPerPage = 10;
   totalItems = 0;
   data = signal<IChurchEvents[]>([]);
 
   tableHeader: ITableListHeader[] = [
-    {label:'Planos de leitura criados:', colspan: 2},
-    {label:'Conteúdo:'},
+    {label:'Eventos criados:', colspan: 2},
+    {label:'Ingressos ativos:'},
     {label:'Publicado para:'},
     {label:'Total de leitores:'},
     {label:'Ações'},
@@ -37,6 +42,13 @@ export class ChurchEventsComponent {
 
   loadData() {
     this.churchEventsService.listChurchEvents(this.page, this.itemsPerPage).subscribe(response => {
+      this.data.set(response.data);
+      this.totalItems = response.totalItems || 0;
+    });
+  }
+
+  onSearch(term: string) {
+    this.churchEventsService.listChurchEvents(this.page, this.itemsPerPage, term).subscribe(response => {
       this.data.set(response.data);
       this.totalItems = response.totalItems || 0;
     });

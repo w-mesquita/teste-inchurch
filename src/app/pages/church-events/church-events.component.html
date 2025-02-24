@@ -1,14 +1,16 @@
 <main class="flex flex-col gap-2">
-  <app-page-header title="Eventos" [icon]="ListTodo" />
+  <app-page-header title="Eventos" [icon]="ListTodo" (search)="onSearch($event)" />
 
-  <section class="rounded-lg overflow-hidden">
-    @if(true){
-      <app-table-list [tableData]="data()" [tableHeader]="tableHeader" />
-    }
-    @if(false){
-      <app-card-list />
-    }
-    <app-paginator [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" [currentPage]="page"
-    (pageChanged)="onPageChange($event)" />
-  </section>
+  <div class="flex-1 max-h-[calc(100vh_-_230px)] overflow-auto">
+    <section class="rounded-lg overflow-hidden">
+      @if(viewMode() === 'table'){
+        <app-table-list [tableData]="data()" [tableHeader]="tableHeader" />
+      }
+      @if(viewMode() === 'grid'){
+        <app-card-list [cardsData]="data()" />
+      }
+      <app-paginator [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" [currentPage]="page"
+      (pageChanged)="onPageChange($event)" />
+    </section>
+  </div>
 </main>
