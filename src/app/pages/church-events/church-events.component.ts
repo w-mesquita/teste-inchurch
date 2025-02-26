@@ -137,7 +137,6 @@ export class ChurchEventsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result !== undefined) {
-        console.log("🔥 ~ result:", result);
 
         //  DADOS PARCIAIS MOCKADOS
         const eventData = {

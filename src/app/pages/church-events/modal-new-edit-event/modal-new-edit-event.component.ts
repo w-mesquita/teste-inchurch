@@ -50,8 +50,6 @@ export class ModalNewEditEventComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    console.log("🔥 ~ dataEvent:", this.dataEvent);
-
     if (this.dataEvent) {
       this.newEventForm.patchValue({
         title: this.dataEvent.title || "",
