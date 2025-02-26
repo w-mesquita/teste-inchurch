@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component, inject, OnInit, signal } from "@angular/core";
+import { Component, inject, OnDestroy, OnInit, signal } from "@angular/core";
 import {
   ListTodo,
   LucideAngularModule,
@@ -21,6 +21,7 @@ import { ModalNewEditEventComponent } from "./modal-new-edit-event/modal-new-edi
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { ModalConfirmDialogComponent } from "../../components/modal-confirm-dialog/modal-confirm-dialog.component";
 import { IModalConfirmation } from "../../models/modal-confirmation.model";
+import { Subject, takeUntil } from "rxjs";
 
 @Component({
   selector: "app-church-events",
@@ -37,7 +38,8 @@ import { IModalConfirmation } from "../../models/modal-confirmation.model";
   templateUrl: "./church-events.component.html",
   styleUrl: "./church-events.component.scss",
 })
-export class ChurchEventsComponent implements OnInit {
+export class ChurchEventsComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject<void>();
   readonly dialog = inject(MatDialog);
   readonly ListTodo = ListTodo;
   readonly X = X;
@@ -67,17 +69,25 @@ export class ChurchEventsComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.churchEventsService.deleteEvent$.subscribe((id) => {
-      this.openDialogConfirm(id);
-    });
-    this.churchEventsService.editEvent$.subscribe((event) => {
-      this.openDialog(event);
-    });
-    this.churchEventsService.selectedEvent$.subscribe((event) => {
-      if (event) {
-        this.openSide(event);
-      }
-    });
+    this.churchEventsService.deleteEvent$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((id) => {
+        this.openDialogConfirm(id);
+      });
+
+    this.churchEventsService.editEvent$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((event) => {
+        this.openDialog(event);
+      });
+
+    this.churchEventsService.selectedEvent$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((event) => {
+        if (event) {
+          this.openSide(event);
+        }
+      });
 
     this.loadData();
   }
@@ -203,5 +213,11 @@ export class ChurchEventsComponent implements OnInit {
     this._snackBar.open(message, action, {
       duration: 3000,
     });
+  }
+
+  // usando aqui para se desiscrever de multiplas inscrições e previnir memory leak
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
