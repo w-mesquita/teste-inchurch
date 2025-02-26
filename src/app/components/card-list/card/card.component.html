@@ -1,0 +1,29 @@
+<div class="bg-white rounded-lg overflow-hidden shadow-sm min-h-80">
+  <div class="relative bg-cover bg-center h-40" [style.background-image]="'url(' + cardData()?.image + ')'">
+    <p class="text-xs text-text_dark font-semibold absolute -bottom-4 left-4 p-2 shadow-md bg-white rounded-lg w-36">
+      {{cardData()?.active ? 'Com ingressos ativos' : 'Sem ingressos ativos'}}
+    </p>
+  </div>
+  <div class="flex flex-col gap-4 p-4">
+    <section class="pt-4">
+      <a (click)="handleSelectEvent()" class="text-text_dark hover:text-primary cursor-pointer mb-4 text-base font-semibold">{{cardData()?.title}}</a>
+    </section>
+    <section class="flex">
+      <div class="flex flex-col">
+        <span class="text-primary font-semibold">Publicado em</span>
+        <span class="text-details font-medium">
+          {{ cardData()?.publishedDate | date:'dd/MM/yyyy' }} às
+          {{ cardData()?.publishedDate | date:'HH:mm' }}
+        </span>
+      </div>
+      <div class="flex items-end gap-2 ml-auto">
+        <button (click)="handleEdit(cardData()!)" class="rounded">
+          <lucide-angular [img]="Pencil" class="h-5 w-5 hover:scale-1 text-details hover:text-primary" />
+        </button>
+        <button (click)="handleDelete(cardData()?.id!)" class="rounded">
+          <lucide-angular [img]="Trash" class="h-5 w-5 hover:scale-1 text-details hover:text-primary" />
+        </button>
+      </div>
+    </section>
+  </div>
+</div>

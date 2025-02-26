@@ -1,0 +1,28 @@
+<div class="flex items-center justify-between p-4">
+  <div class="flex items-center gap-4">
+    @if(titleIcon){
+      <lucide-angular [img]="titleIcon" class="h-7 w-7 hover:scale-1 text-details hover:text-primary" />
+    }
+    <p class="text-lg text-text_dark font-semibold">{{data.actionTitle ? data.actionTitle : 'Confirmação'}}</p>
+  </div>
+  <button mat-button (click)="onNoClick()">
+    <lucide-angular [img]="X" class="h-7 w-7 hover:scale-1 text-details hover:text-primary" />
+  </button>
+</div>
+<hr>
+<mat-dialog-content>
+  <p class="text-xl text-details">
+    {{data.message}}
+  </p>
+</mat-dialog-content>
+
+<mat-dialog-actions class="flex !justify-between gap-4">
+  <button (click)="onNoClick()"
+    class="py-2 px-4 rounded-md border-2 border-details text-details hover:text-primary hover:border-primary text-sm">
+    Cancelar
+  </button>
+  <button (click)="handleConfirm()"
+    class="py-2 px-4 border-2 text-sm rounded-md border-primary text-white bg-primary hover:bg-primary_light">
+    {{data.actionText ? data.actionText : 'OK'}}
+  </button>
+</mat-dialog-actions>

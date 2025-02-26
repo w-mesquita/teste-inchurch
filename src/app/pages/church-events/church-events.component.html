@@ -1,0 +1,56 @@
+<mat-sidenav-container class="flex flex-col gap-2 !overflow-visible" hasBackdrop="true">
+
+  <mat-sidenav-content >
+    <app-page-header title="Eventos" [icon]="ListTodo" (search)="onSearch($event)" (newEvent)="openDialog()" />
+
+    <div class="flex-1 max-h-[calc(100vh_-_230px)] overflow-auto">
+      <section class="rounded-lg overflow-hidden">
+        @if(viewMode() === 'table'){
+        <app-table-list [tableData]="data()" [tableHeader]="tableHeader" />
+        }
+        @if(viewMode() === 'grid'){
+        <app-card-list [cardsData]="data()" />
+        }
+        <app-paginator [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" [currentPage]="page"
+          (pageChanged)="onPageChange($event)" />
+      </section>
+    </div>
+  </mat-sidenav-content>
+
+  <mat-sidenav
+    (closed)="closeSide()"
+    #sidenav
+    mode="over"
+    position="end"
+    [opened]="isSidenavOpen"
+    class="flex flex-col gap-4 !min-w-[580px] !bg-white p-4 !min-h-[calc(100vh_-_230px)]">
+
+    <div class="sidenav-header flex justify-between">
+      <p class="text-2xl font-semibold text-text_dark">Detalhes do Evento</p>
+      <button (click)="closeSidenav()">
+        <lucide-angular [img]="X" class="h-7 w-7 hover:scale-1 text-details hover:text-primary" />
+      </button>
+    </div>
+
+    <div class="relative bg-cover bg-center h-60 my-4" [style.background-image]="'url(' + selectedEvent?.image + ')'">
+
+    </div>
+
+    <div class="flex gap-2 mb-4">
+      <button (click)="this.openDialog(selectedEvent!); closeSidenav()" class="rounded">
+        <lucide-angular [img]="Pencil" class="h-5 w-5 hover:scale-1 text-details hover:text-primary" />
+      </button>
+      <button (click)="openDialogConfirm(selectedEvent?.id!)" class="rounded">
+        <lucide-angular [img]="Trash" class="h-5 w-5 hover:scale-1 text-details hover:text-primary" />
+      </button>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <p><strong>Evento: </strong>{{selectedEvent?.title}} </p>
+      <p><strong>Data: </strong>
+        {{ selectedEvent?.publishedDate | date:'dd/MM/yyyy' }} às {{ selectedEvent?.publishedDate | date:'HH:mm' }}
+      </p>
+      <p><strong>Descrição: </strong>{{selectedEvent?.content}} </p>
+    </div>
+  </mat-sidenav>
+</mat-sidenav-container>

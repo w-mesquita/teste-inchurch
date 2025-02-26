@@ -1,0 +1,5 @@
+<div class="grid grid-cols-[repeat(auto-fill,_minmax(315px,_1fr))] gap-4 my-2">
+  @for(item of cardsData(); track $index){
+    <app-card [cardData]="item" />
+  }
+</div>

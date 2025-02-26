@@ -1,0 +1,24 @@
+<div class="py-4 min-w-20 h-screen">
+  <nav class="flex flex-col items-center ">
+    <div class="mb-10">
+      <button class="
+        p-1
+        relative
+        z[99]
+        "
+        >
+
+        <lucide-angular [img]="AlignJustify" class="h-7 w-7 hover:scale-1 text-details hover:text-primary" />
+      </button>
+    </div>
+    <section class="flex flex-col items-center gap-6">
+      @for(item of sidebarItems; track $index){
+        <button (click)="item.action()" class="flex flex-col items-center group">
+          <lucide-angular [img]="item.icon" class="h-7 w-7 group-hover:scale-1 text-details group-hover:text-primary" />
+          <p class="text-[10px] font-semibold text-details">{{item.label}}</p>
+        </button>
+      }
+    </section>
+
+  </nav>
+</div>
