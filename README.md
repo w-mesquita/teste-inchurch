@@ -22,13 +22,13 @@ Este projeto foi gerado com a versão [Angular CLI](https://github.com/angular/a
 Primeiro execute o comando abaixo para iniciar o servidor backend fake com JSON-SERVER:
 ```bash
 npm run watch
-
+```
 A aplicação vai inicar em `http://localhost:3000/`. 
 
 Em um novo terminal execute o comando abaixo para iniciar o servidor de desenvolvimento FrontEnd:
 ```bash
 ng serve
-
+```
 Acesse a aplicação em `http://localhost:4200/`. A aplicação será recarregada automaticamente sempre que você alterar os arquivos de origem.
 
 ## Compilação
