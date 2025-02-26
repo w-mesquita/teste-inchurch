@@ -1,27 +1,65 @@
+
 # AppInchurch
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.14.
+Este projeto foi gerado com a versão [Angular CLI](https://github.com/angular/angular-cli) 18.2.14.
 
-## Development server
+## Início
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Clone o repositório usando o comando abaixo:
+   ```bash
+   git clone https://github.com/w-mesquita/teste-inchurch.git
 
-## Code scaffolding
+2. Navegue para o diretório do projeto:
+   ```bash
+   cd teste-inchurch
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3. Instale as dependências do projeto:
+   ```bash
+   npm install
 
-## Build
+## Servidor de Desenvolvimento
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Primeiro execute o comando abaixo para iniciar o servidor backend fake com JSON-SERVER:
+```bash
+npm run watch
 
-## Running unit tests
+A aplicação vai inicar em `http://localhost:3000/`. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Em um novo terminal execute o comando abaixo para iniciar o servidor de desenvolvimento FrontEnd:
+```bash
+ng serve
 
-## Running end-to-end tests
+Acesse a aplicação em `http://localhost:4200/`. A aplicação será recarregada automaticamente sempre que você alterar os arquivos de origem.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Compilação
 
-## Further help
+Execute o comando abaixo para compilar o projeto:
+```bash
+ng build
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Os arquivos compilados serão armazenados no diretório `dist/`.
+
+## Acessar a aplicação
+
+A aplicação está com mock simulando usuario e senha pré definida para validação
+Use o email: admin@email.com.br e a senha : 123456 para acessar
+
+## Funcionalidades implementadas
+
+Criado sistema de simulação de login simulando rota autenticada e rota para autenticação.
+O sistema salva um token ficticio para simular a seção do usuário caso esse token seja removido o usuario é direcionado para login.
+Criado uma pagina para exibir, cadastrar, editar e excluir um evento.
+Criado funcionalidade de exibir tabela em cards ou em lista salvando a escolha em um estado em storage
+Criado modal para criar e editar um evento.
+Criado metodo para excluir evento com confirmação para o usuario não excluir por acidente
+As imagens no componente de criação incialmente seguem mockadas assim que adicionadas elas são salvas como base64 no server
+.
+Criado filtro para pesquisar por palavra chave tanto em lista quando em cards.
+Criado componentes de header e footer e sidebar apenas para estética.
+O sistema de login foi pensado com responsividade porem o restante do sistema optei por não focar em responsividade devido ao prazo para criar então foquei nas funcionalidades principais.
+
+
+## Mais Ajuda
+
+Para obter mais ajuda sobre o Angular CLI, use o comando `ng help` ou consulte a página de [Visão Geral e Referência de Comandos do Angular CLI](https://angular.dev/tools/cli).
