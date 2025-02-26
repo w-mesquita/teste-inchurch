@@ -82,13 +82,13 @@
         focus:border-transparent
       "></textarea>
 
-      @if(newEventForm.controls['description'].invalid && newEventForm.controls['description'].touched) {
-        @if(newEventForm.controls['description'].hasError('required')){
+      @if(newEventForm.controls['content'].invalid && newEventForm.controls['content'].touched) {
+        @if(newEventForm.controls['content'].hasError('required')){
           <p class="text-red-500 text-sm">
             Descrição do evento é obrigatório.
           </p>
         }
-        @if(newEventForm.controls['description'].hasError('minlength')){
+        @if(newEventForm.controls['content'].hasError('minlength')){
           <p class="text-red-500 text-sm">
             Descrição do evento deve ter no mínimo 10 caracteres.
           </p>

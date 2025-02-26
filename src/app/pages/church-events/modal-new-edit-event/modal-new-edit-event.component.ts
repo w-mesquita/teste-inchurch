@@ -41,7 +41,7 @@ export class ModalNewEditEventComponent implements OnInit {
 
   newEventForm = new FormGroup({
     title: new FormControl("", [Validators.required, Validators.minLength(3)]),
-    description: new FormControl("", [
+    content: new FormControl("", [
       Validators.required,
       Validators.minLength(10),
     ]),
@@ -53,7 +53,7 @@ export class ModalNewEditEventComponent implements OnInit {
     if (this.dataEvent) {
       this.newEventForm.patchValue({
         title: this.dataEvent.title || "",
-        description: this.dataEvent.content || "",
+        content: this.dataEvent.content || "",
         image: this.dataEvent.image || null,
         active: this.dataEvent.active || false,
       });
@@ -96,7 +96,7 @@ export class ModalNewEditEventComponent implements OnInit {
       if (this.dataEvent) {
         const updatedEvent = { ...this.dataEvent };
         updatedEvent.title = this.newEventForm.get("title")?.value;
-        updatedEvent.description = this.newEventForm.get("description")?.value;
+        updatedEvent.content = this.newEventForm.get("content")?.value;
         updatedEvent.image = this.imagePreview;
         updatedEvent.active = this.newEventForm.get("active")?.value;
 

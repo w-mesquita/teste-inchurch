@@ -118,10 +118,13 @@ export class ChurchEventsComponent implements OnInit {
   handleDelete(eventID: number): void {
     this.churchEventsService.deleteChurchEvent(eventID).subscribe({
       next: () => {
-        console.log("Evento excluído com sucesso!");
+        this.openSnackBar("Evento excluído com sucesso!");
         this.loadData();
       },
-      error: (err) => console.error("Erro ao excluir evento:", err),
+      error: (err) => {
+        console.error("Erro ao excluir evento:", err)
+        this.openSnackBar("Erro ao excluir evento:")
+      },
     });
   }
 
@@ -154,7 +157,7 @@ export class ChurchEventsComponent implements OnInit {
             },
             error: (err) => {
               console.error("Erro ao atualizar evento:", err);
-              this.openSnackBar("Erro ao atualizar evento:", err);
+              this.openSnackBar("Erro ao atualizar evento:");
             },
           });
         } else {
@@ -165,7 +168,7 @@ export class ChurchEventsComponent implements OnInit {
             },
             error: (err) => {
               console.error("Erro ao criar evento:", err);
-              this.openSnackBar("Erro ao criar evento:", err);
+              this.openSnackBar("Erro ao criar evento:");
             },
           });
         }

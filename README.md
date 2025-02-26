@@ -1,6 +1,8 @@
 
 # AppInchurch
 
+![Preview](app-preview.gif)
+
 Este projeto foi gerado com a versão [Angular CLI](https://github.com/angular/angular-cli) 18.2.14.
 
 ## Início
@@ -33,7 +35,7 @@ Acesse a aplicação em `http://localhost:4200/`. A aplicação será recarregad
 
 ## Compilação
 
-Execute o comando abaixo para compilar o projeto:
+Execute o comando abaixo para compilar o projeto (só necessário se desejar fazer deploy do projeto):
 ```bash
 ng build
 ```
