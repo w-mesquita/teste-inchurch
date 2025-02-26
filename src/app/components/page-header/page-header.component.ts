@@ -15,6 +15,7 @@ export class PageHeaderComponent {
   title = input.required();
   icon = input.required<any>();
   search = output<string>();
+  newEvent = output<void>();
   searchTerm: string = '';
 
   viewModeStore = inject(useViewModeStore);
@@ -33,5 +34,9 @@ export class PageHeaderComponent {
 
   onSearch() {
     this.search.emit(this.searchTerm);
+  }
+
+  onNewClick() {
+    this.newEvent.emit();
   }
 }

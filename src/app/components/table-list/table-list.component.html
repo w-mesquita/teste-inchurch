@@ -1,34 +1,40 @@
 <table class="min-w-full table-auto my-2">
-    <thead class="bg-white">
-      <tr>
+  <thead class="bg-white">
+    <tr>
       @for(item of tableHeader(); track $index){
-          <th class="px-4 py-2 text-left" [attr.colspan]="item.colspan">{{item.label}}</th>
-        }
-      </tr>
-    </thead>
-    <tbody>
-      @for(item of tableData(); track $index){
-        <tr class="odd:bg-bg_card even:bg-white">
-          <td class="px-4 py-2 w-24">
-            <img [src]="item.image" alt="image" class="rounded w-16 h-11">
-          </td>
-          <td class="px-4 py-2 truncate max-w-40" [matTooltip]="item.title"
-          matTooltipPosition="above">{{item.title}}</td>
-          <td class="px-4 py-2">{{item.activeTickets ? 'Sim' : 'Não'}}</td>
-          <td class="px-4 py-2">{{item.publishedTo}}</td>
-          <td class="px-4 py-2">{{item.totalReaders}}</td>
-          <td class="px-4 py-2">
-            <button class="p-2 rounded">
-              <lucide-angular [img]="Pencil" class="h-5 w-5 hover:scale-1 text-details hover:text-primary" />
-            </button>
-            <button class="p-2 rounded">
-              <lucide-angular [img]="Trash" class="h-5 w-5 hover:scale-1 text-details hover:text-primary" />
-            </button>
-          </td>
-        </tr>
+      <th class="px-4 py-2 text-left" [attr.colspan]="item.colspan">{{item.label}}</th>
       }
-      @empty{
-        <p class="p-4 text-text_dark font-semibold">Nenhum registro encontrado...</p>
-      }
-    </tbody>
-  </table>
+    </tr>
+  </thead>
+  <tbody>
+    @for(item of tableData(); track $index){
+    <tr class="odd:bg-bg_card even:bg-white">
+      <td class="px-4 py-2 w-24">
+        <img [src]="item.image" alt="image" class="rounded w-16 h-11">
+      </td>
+      <td class="px-4 py-2 max-w-40">
+        <button (click)="onSelectEvent(item)" class="text-text_dark hover:text-primary truncate max-w-40">
+          {{item.title}}
+        </button>
+      </td>
+      <td class="px-4 py-2">{{item.active ? 'Sim' : 'Não'}}</td>
+      <td class="px-4 py-2">{{item.publishedTo}}</td>
+      <td class="px-4 py-2">
+        {{ item.publishedDate | date:'dd/MM/yyyy' }} às {{ item.publishedDate | date:'HH:mm' }}
+      </td>
+      <td class="px-4 py-2">{{item.totalReaders}}</td>
+      <td class="px-4 py-2">
+        <button (click)="handleEdit(item)" class="p-2 rounded">
+          <lucide-angular [img]="Pencil" class="h-5 w-5 hover:scale-1 text-details hover:text-primary" />
+        </button>
+        <button (click)="handleDelete(item.id)" class="p-2 rounded">
+          <lucide-angular [img]="Trash" class="h-5 w-5 hover:scale-1 text-details hover:text-primary" />
+        </button>
+      </td>
+    </tr>
+    }
+    @empty{
+    <p class="p-4 text-text_dark font-semibold">Nenhum registro encontrado...</p>
+    }
+  </tbody>
+</table>

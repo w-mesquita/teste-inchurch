@@ -5,7 +5,7 @@
       "image": "https://picsum.photos/200/300?random=1",
       "title": "Deus e tudo na minha vida, mais preciso de duas linhas!",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "activeTickets": false,
+      "active": false,
       "publishedTo": "Igreja 1",
       "totalReaders": 150,
       "publishedDate": "2021-09-21T19:00:00"
@@ -15,7 +15,7 @@
       "image": "https://picsum.photos/200/300?random=2",
       "title": "Evento de Louvor e Adoração",
       "content": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-      "activeTickets": true,
+      "active": true,
       "publishedTo": "Igreja 2",
       "totalReaders": 200,
       "publishedDate": "2021-10-15T18:30:00"
@@ -25,7 +25,7 @@
       "image": "https://picsum.photos/200/300?random=3",
       "title": "Noite de Milagres",
       "content": "Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.",
-      "activeTickets": true,
+      "active": true,
       "publishedTo": "Igreja 3",
       "totalReaders": 300,
       "publishedDate": "2021-11-05T20:00:00"
@@ -35,7 +35,7 @@
       "image": "https://picsum.photos/200/300?random=4",
       "title": "Retiro Espiritual",
       "content": "Donec eu libero sit amet quam egestas semper.",
-      "activeTickets": false,
+      "active": false,
       "publishedTo": "Igreja 4",
       "totalReaders": 100,
       "publishedDate": "2021-12-10T09:00:00"
@@ -45,7 +45,7 @@
       "image": "https://picsum.photos/200/300?random=5",
       "title": "Conferência de Jovens",
       "content": "Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
-      "activeTickets": true,
+      "active": true,
       "publishedTo": "Igreja 5",
       "totalReaders": 250,
       "publishedDate": "2022-01-20T14:00:00"
@@ -55,7 +55,7 @@
       "image": "https://picsum.photos/200/300?random=6",
       "title": "Culto de Ação de Graças",
       "content": "Quisque sit amet est et sapien ullamcorper pharetra.",
-      "activeTickets": false,
+      "active": false,
       "publishedTo": "Igreja 6",
       "totalReaders": 175,
       "publishedDate": "2022-02-15T19:30:00"
@@ -65,7 +65,7 @@
       "image": "https://picsum.photos/200/300?random=7",
       "title": "Encontro de Casais",
       "content": "Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.",
-      "activeTickets": true,
+      "active": true,
       "publishedTo": "Igreja 7",
       "totalReaders": 220,
       "publishedDate": "2022-03-10T18:00:00"
@@ -75,7 +75,7 @@
       "image": "https://picsum.photos/200/300?random=8",
       "title": "Seminário de Fé",
       "content": "Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
-      "activeTickets": true,
+      "active": true,
       "publishedTo": "Igreja 8",
       "totalReaders": 300,
       "publishedDate": "2022-04-05T20:00:00"
@@ -85,7 +85,7 @@
       "image": "https://picsum.photos/200/300?random=9",
       "title": "Culto de Libertação",
       "content": "Phasellus ultrices nulla quis nibh. Quisque a lectus.",
-      "activeTickets": false,
+      "active": false,
       "publishedTo": "Igreja 9",
       "totalReaders": 150,
       "publishedDate": "2022-05-01T19:00:00"
@@ -95,7 +95,7 @@
       "image": "https://picsum.photos/200/300?random=10",
       "title": "Evento de Natal",
       "content": "Curabitur bibendum justo non orci. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.",
-      "activeTickets": true,
+      "active": true,
       "publishedTo": "Igreja 10",
       "totalReaders": 400,
       "publishedDate": "2022-12-24T21:00:00"
@@ -105,7 +105,7 @@
       "image": "https://picsum.photos/200/300?random=11",
       "title": "Culto de Ano Novo",
       "content": "Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.",
-      "activeTickets": true,
+      "active": true,
       "publishedTo": "Igreja 11",
       "totalReaders": 500,
       "publishedDate": "2023-01-01T00:00:00"
@@ -115,7 +115,7 @@
       "image": "https://picsum.photos/200/300?random=12",
       "title": "Retiro de Carnaval",
       "content": "Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.",
-      "activeTickets": false,
+      "active": false,
       "publishedTo": "Igreja 12",
       "totalReaders": 120,
       "publishedDate": "2023-02-20T10:00:00"
@@ -125,7 +125,7 @@
       "image": "https://picsum.photos/200/300?random=13",
       "title": "Culto de Páscoa",
       "content": "Donec non enim in turpis pulvinar facilisis. Ut felis.",
-      "activeTickets": true,
+      "active": true,
       "publishedTo": "Igreja 13",
       "totalReaders": 300,
       "publishedDate": "2023-04-09T19:00:00"
@@ -135,7 +135,7 @@
       "image": "https://picsum.photos/200/300?random=14",
       "title": "Evento de Pentecostes",
       "content": "Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
-      "activeTickets": true,
+      "active": true,
       "publishedTo": "Igreja 14",
       "totalReaders": 350,
       "publishedDate": "2023-05-28T18:30:00"
@@ -145,7 +145,7 @@
       "image": "https://picsum.photos/200/300?random=15",
       "title": "Culto de Colheita",
       "content": "Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam.",
-      "activeTickets": false,
+      "active": false,
       "publishedTo": "Igreja 15",
       "totalReaders": 200,
       "publishedDate": "2023-06-25T19:00:00"
@@ -155,7 +155,7 @@
       "image": "https://picsum.photos/200/300?random=16",
       "title": "Conferência de Mulheres",
       "content": "Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit.",
-      "activeTickets": true,
+      "active": true,
       "publishedTo": "Igreja 16",
       "totalReaders": 280,
       "publishedDate": "2023-07-15T14:00:00"
@@ -165,7 +165,7 @@
       "image": "https://picsum.photos/200/300?random=17",
       "title": "Culto de Homens",
       "content": "Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.",
-      "activeTickets": true,
+      "active": true,
       "publishedTo": "Igreja 17",
       "totalReaders": 220,
       "publishedDate": "2023-08-10T18:00:00"
@@ -175,7 +175,7 @@
       "image": "https://picsum.photos/200/300?random=18",
       "title": "Evento de Crianças",
       "content": "Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.",
-      "activeTickets": false,
+      "active": false,
       "publishedTo": "Igreja 18",
       "totalReaders": 150,
       "publishedDate": "2023-09-05T10:00:00"
@@ -185,7 +185,7 @@
       "image": "https://picsum.photos/200/300?random=19",
       "title": "Culto de Jovens",
       "content": "Praesent placerat risus quis eros. Fusce pellentesque, suscipit egestas, turpis.",
-      "activeTickets": true,
+      "active": true,
       "publishedTo": "Igreja 19",
       "totalReaders": 300,
       "publishedDate": "2023-10-20T19:30:00"
@@ -195,7 +195,7 @@
       "image": "https://picsum.photos/200/300?random=20",
       "title": "Culto de Encerramento do Ano",
       "content": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui.",
-      "activeTickets": true,
+      "active": true,
       "publishedTo": "Igreja 20",
       "totalReaders": 400,
       "publishedDate": "2023-12-31T22:00:00"

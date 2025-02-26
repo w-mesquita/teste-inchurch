@@ -32,18 +32,18 @@ export class LoginComponent {
       const { email, password } = this.loginForm.value;
       const isAuthenticated = this.authService.login(email!, password!);
       if (isAuthenticated) {
-        this.openSnackBar("Login bem-sucedido!", 'Ok');
+        this.openSnackBar("Login bem-sucedido!");
 
         this.router.navigateByUrl("/"); //direciona para home no caso events
       } else {
-        this.openSnackBar("Email ou senha inválidos", 'Ok');
+        this.openSnackBar("Email ou senha inválidos");
       }
     } else {
-      this.openSnackBar("Formulário inválido", 'Ok');
+      this.openSnackBar("Formulário inválido");
     }
   }
 
-  openSnackBar(message: string, action: string) {
+  openSnackBar(message: string, action: string= 'OK') {
     this._snackBar.open(message, action,{
       duration: 3000,
     });

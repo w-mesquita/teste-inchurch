@@ -1,4 +1,4 @@
-<div class="flex items-center justify-between w-full rounded-lg shadow-sm bg-white p-4">
+<div class="flex flex-col xl:flex-row items-center justify-between w-full rounded-lg shadow-sm bg-white p-4">
   <section class="flex items-center gap-2">
 
     <lucide-angular [img]="icon()" class="h-10 w-10 hover:scale-1 text-text_dark hover:text-primary" />
@@ -17,11 +17,11 @@
       </button>
     </div>
 
-    <button class="flex items-center justify-center h-[42px] w-[42px] border-2 border-details rounded-md">
+    <button disabled class="flex items-center justify-center h-[42px] w-[42px] border-2 border-details rounded-md">
       <lucide-angular [img]="Filter" class="h-5 w-5 hover:scale-1 text-details hover:text-primary" />
     </button>
 
-    <button class="flex items-center justify-center h-[42px] w-[42px] border-2 border-details rounded-md">
+    <button disabled class="flex items-center justify-center h-[42px] w-[42px] border-2 border-details rounded-md">
       <lucide-angular [img]="Download" class="h-5 w-5 hover:scale-1 text-details hover:text-primary" />
     </button>
 
@@ -31,7 +31,7 @@
         class="h-5 w-5 hover:scale-1 text-details hover:text-primary" />
     </button>
 
-    <button
+    <button (click)="onNewClick()"
       class="flex items-center text-white text-sm bg-primary hover:bg-primary_light rounded-md h-[42px] px-6 gap-1">
       <lucide-angular [img]="Plus" class="h-5 w-5 hover:scale-1 text-white" />
       Novo

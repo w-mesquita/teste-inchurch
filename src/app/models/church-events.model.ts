@@ -3,7 +3,7 @@ export interface IChurchEvents {
   image: string;
   title: string;
   content: string;
-  activeTickets: boolean;
+  active: boolean;
   publishedTo: string;
   totalReaders: number;
   publishedDate: string;

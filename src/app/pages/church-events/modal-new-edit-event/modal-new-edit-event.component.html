@@ -1,0 +1,132 @@
+<div class="flex items-center justify-between p-4">
+  <p class="font-lg">Cadastrar Evento</p>
+  <button mat-button (click)="onNoClick()">
+    <lucide-angular [img]="X" class="h-7 w-7 hover:scale-1 text-details hover:text-primary" />
+  </button>
+</div>
+<hr>
+<mat-dialog-content>
+
+  <form [formGroup]="newEventForm" class="w-full max-w-xl flex flex-col justify-center gap-4 p-4">
+
+    <div class="flex items-center justify-center w-full group">
+      <label for="dropzone-file"
+        class="relative flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 hover:border-primary border-dashed rounded-lg cursor-pointer bg-bg_card hover:bg-gray-100">
+
+        @if(imagePreview) {
+        <img [src]="imagePreview" class="absolute inset-0 w-full h-full object-cover rounded-lg" />
+        }
+
+        @if(imagePreview) {
+        <button type="button" (click)="removeImage()" title="Remover imagem"
+          class="absolute top-2 right-2 text-white rounded-full p-2 shadow-md">
+          <lucide-angular [img]="Trash" class="h-7 w-7 hover:scale-1 text-details hover:text-primary" />
+        </button>
+        }
+
+        @if(!imagePreview) {
+        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+          <lucide-angular [img]="CloudUpload"
+            class="h-7 w-7 mb-4 group-hover:scale-1 text-details group-hover:text-primary" />
+          <p class="mb-2 text-sm text-gray-500 font-semibold">Clique para adicionar uma imagem</p>
+          <p class="text-xs text-gray-500">PNG, JPG ou GIF (MAX. 800x400px)</p>
+        </div>
+        }
+
+        <input id="dropzone-file" type="file" class="hidden" (click)="markImageAsTouched()"
+          (focusout)="checkImageSelection()" (change)="onFileSelected($event)" />
+
+      </label>
+    </div>
+    @if(newEventForm.controls['image'].invalid && newEventForm.controls['image'].touched) {
+    <p class="text-red-500 text-sm">Imagem é obrigatória.</p>
+    }
+
+    <input type="text" placeholder="Nome do evento" formControlName="title" class="
+        px-4
+        py-2
+        w-full
+        h-[42px]
+        border-2
+        border-details
+        rounded-md
+        focus:outline-none
+        focus:ring-2
+        focus:ring-primary
+        focus:border-transparent
+      ">
+
+    @if(newEventForm.controls['title'].invalid && newEventForm.controls['title'].touched) {
+      @if(newEventForm.controls['title'].hasError('required')){
+        <p class="text-red-500 text-sm">
+          Nome do evento é obrigatório.
+        </p>
+      }
+      @if(newEventForm.controls['title'].hasError('minlength')){
+        <p class="text-red-500 text-sm">
+          Nome do evento deve ter no mínimo 3 caracteres.
+        </p>
+      }
+    }
+
+    <textarea type="text-area" placeholder="Descrição" formControlName="description" class="
+        px-4
+        py-2
+        w-full
+        border-2
+        border-details
+        rounded-md
+        focus:outline-none
+        focus:ring-2
+        focus:ring-primary
+        focus:border-transparent
+      "></textarea>
+
+      @if(newEventForm.controls['description'].invalid && newEventForm.controls['description'].touched) {
+        @if(newEventForm.controls['description'].hasError('required')){
+          <p class="text-red-500 text-sm">
+            Descrição do evento é obrigatório.
+          </p>
+        }
+        @if(newEventForm.controls['description'].hasError('minlength')){
+          <p class="text-red-500 text-sm">
+            Descrição do evento deve ter no mínimo 10 caracteres.
+          </p>
+        }
+      }
+
+    <label class="flex cursor-pointer py-2 gap-2">
+      <input type="checkbox" formControlName="active" class="sr-only peer" title="toggle-theme" />
+      <div class="
+            w-9
+            h-5
+            flex
+            items-center
+            px-0.5
+            bg-details
+            rounded-full
+            peer-checked:bg-primary
+            peer-checked:after:translate-x-4
+            after:content-['']
+            after:flex
+            after:w-4
+            after:h-4
+            after:rounded-full
+            after:bg-white
+            after:transition-all">
+      </div>
+      Ingressos ativos
+    </label>
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="flex !justify-end gap-4">
+  <button (click)="onNoClick()"
+    class="py-2 px-4 rounded-md border-2 border-details text-details hover:text-primary hover:border-primary text-sm">Cancelar</button>
+  <button (click)="handleSave()" [disabled]="newEventForm.invalid" [ngClass]="{
+    'py-2 px-4 border-2 text-sm rounded-md': true,
+    'border-primary text-white bg-primary hover:bg-primary_light': !newEventForm.invalid,
+    'border-gray-300 text-gray-500 bg-gray-300 cursor-not-allowed': newEventForm.invalid
+  }">Salvar</button>
+</mat-dialog-actions>
