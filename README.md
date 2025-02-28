@@ -45,7 +45,15 @@ Os arquivos compilados serão armazenados no diretório `dist/`.
 ## Acessar a aplicação
 
 A aplicação está com mock simulando usuario e senha pré definida para validação
-Use o email: admin@email.com.br e a senha : 123456 para acessar
+Use o email: 
+```bash
+admin@email.com.br
+```
+e a senha :
+```bash
+123456
+```
+para acessar.
 
 ## Funcionalidades implementadas
 
