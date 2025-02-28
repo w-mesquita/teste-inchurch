@@ -23,7 +23,7 @@ Este projeto foi gerado com a versão [Angular CLI](https://github.com/angular/a
 
 Primeiro execute o comando abaixo para iniciar o servidor backend fake com JSON-SERVER:
 ```bash
-npm run watch
+npm run server
 ```
 A aplicação vai inicar em `http://localhost:3000/`. 
 
@@ -49,17 +49,26 @@ Use o email: admin@email.com.br e a senha : 123456 para acessar
 
 ## Funcionalidades implementadas
 
-Criado sistema de simulação de login simulando rota autenticada e rota para autenticação.
-O sistema salva um token ficticio para simular a seção do usuário caso esse token seja removido o usuario é direcionado para login.
-Criado uma pagina para exibir, cadastrar, editar e excluir um evento.
-Criado funcionalidade de exibir tabela em cards ou em lista salvando a escolha em um estado em storage
-Criado modal para criar e editar um evento.
-Criado metodo para excluir evento com confirmação para o usuario não excluir por acidente
-As imagens no componente de criação incialmente seguem mockadas assim que adicionadas elas são salvas como base64 no server
-.
-Criado filtro para pesquisar por palavra chave tanto em lista quando em cards.
-Criado componentes de header e footer e sidebar apenas para estética.
-O sistema de login foi pensado com responsividade porem o restante do sistema optei por não focar em responsividade devido ao prazo para criar então foquei nas funcionalidades principais.
+- Criado sistema de simulação de login simulando rota autenticada e rota para autenticação.
+
+- O sistema salva um token fictício para simular a sessão do usuário. Caso esse token seja removido, o usuário é direcionado para login.
+
+- Criado uma página para exibir, cadastrar, editar e excluir um evento.
+
+- Criado funcionalidade de exibir tabela em cards ou em lista, salvando a escolha em um estado no storage.
+
+- Criado modal para criar e editar um evento.
+
+- Criado método para excluir evento com confirmação, para o usuário não excluir por acidente.
+
+- As imagens no componente de criação inicialmente seguem mockadas. Assim que adicionadas, elas são salvas como base64 no servidor.
+
+- Criado filtro para pesquisar por palavra-chave, tanto em lista quanto em cards.
+
+- Criados componentes de header, footer e sidebar apenas para estética.
+
+- O sistema de login foi pensado com responsividade. Porém, o restante do sistema não foi focado em responsividade devido ao prazo, então priorizei as funcionalidades principais.
+
 
 
 ## Mais Ajuda
